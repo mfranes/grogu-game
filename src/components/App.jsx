@@ -1,4 +1,8 @@
 import{useState} from "react";
+import Header from "./Header";
+import Board from "./Board";
+import Grogu from "./Grogu";
+import Dado from "./Dado";
 
 import "../styles/App.scss"
 
@@ -7,22 +11,20 @@ function App() {
   
   return (
     <>
-     <header>
-      <h1>¡Cuidado con Grogu!{setName}</h1>
-      <p className="color">Introduce tu nombre para jugar</p>
-      <input type="text" id="" name=""
-      placeholder="" />
-    </header>
+    <Header/>
+    <Board/>
+    <Grogu/>
+    
     <main className="page">
-      <section className="board">
-        <div className="cell"><div className="grogu">👣</div></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-      </section>
+   
+   
+  
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
+    <div className="cell"></div>
 
       <section>
         <button className="dice">Lanzar Dado</button>
