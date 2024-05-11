@@ -1,8 +1,17 @@
-function Board () {
-    return(
+import Grogu from "./Grogu";
+
+function Board() {
+  return (
     <section className="board">
-   
-  </section>
-  )
+      <div className="cell">
+        <Grogu />
+      </div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+    </section>
+  );
 }
-export default Board
+export default Board;
