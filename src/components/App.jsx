@@ -1,7 +1,7 @@
 import{useState} from "react";
 import Header from "./Header";
 import Board from "./Board";
-
+import Dice from "./Dice";
 
 
 
@@ -9,20 +9,31 @@ import "../styles/App.scss"
 
 function App() {
   const [name,setName]= useState("")
+  const [dice,setDice]= useState("")
+  const rollDice=()=>{
+
+  }
   
+  
+   const handleDice=(ev)=>{
+    setDice(getRandomNumber ());
+    console.log(dice);
+  }
+    
+}
   return (
+    
     <>
     <Header/>
     <Board/>
   
-    
     <main className="page">
    
    
   
 
     <section>
-        <button className="dice">Lanzar Dado</button>
+        
         <div className="game-status">En curso</div>
    </section>
 
@@ -47,6 +58,6 @@ function App() {
     </main>
     </>
   );
-}
+
 
 export default App;
