@@ -9,14 +9,21 @@ function App() {
   const [name, setName] = useState("");
   const [dice, setDice] = useState("");
 
-  const rollDice = () => {
-    console.log('rollDice');
+  const rollDice = (sides) => {
+    // console.log('rollDice');
+    const minThrow = 1;
+    const maxThrow = sides;
+
+    return Math.floor(Math.random() * (maxThrow - minThrow + 1) ) + minThrow;
   };
 
   const handleDice = (ev) => {
-    setDice(getRandomNumber());
-    console.log(dice);
+    console.log('handleDice');
+    const diceResult = rollDice(4);
+
+    console.log(diceResult);
   };
+
 
   return (
     <>
@@ -25,7 +32,7 @@ function App() {
 
       <main className="page">
         <section>
-          <button className="dice" onClick={rollDice}>Lanzar Dado</button>
+          <button className="dice" onClick={handleDice}>Lanzar Dado</button>
           <div className="game-status">En curso</div>
         </section>
 
