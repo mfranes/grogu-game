@@ -23,7 +23,8 @@ function App() {
 
       <main className="page">
         <section>
-          <div className="game-status">En curso</div>
+          <button class="dice">Lanzar Dado</button>
+          <div class="game-status">En curso</div>
         </section>
 
         <section className="goods-container">
