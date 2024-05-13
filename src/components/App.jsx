@@ -9,7 +9,9 @@ function App() {
   const [name, setName] = useState("");
   const [dice, setDice] = useState("");
 
-  const rollDice = () => {};
+  const rollDice = () => {
+    console.log('rollDice');
+  };
 
   const handleDice = (ev) => {
     setDice(getRandomNumber());
@@ -23,7 +25,7 @@ function App() {
 
       <main className="page">
         <section>
-          <button className="dice">Lanzar Dado</button>
+          <button className="dice" onClick={rollDice}>Lanzar Dado</button>
           <div className="game-status">En curso</div>
         </section>
 
