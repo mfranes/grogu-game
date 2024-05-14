@@ -8,7 +8,12 @@ import "../styles/App.scss";
 function App() {
   const [name, setName] = useState("");
   const [dice, setDice] = useState("");
+  const [grogu, setGrogu] = useState (0);
+  const [cookies,setCookies]= useState(["🍪","🍪","🍪"]);
+  const [eggs, setEggs] = useState(["🥚","🥚","🥚"]);
+  const [frogs, setFrogs] = useState(["🐸","🐸","🐸"]);
 
+  
   const rollDice = (sides) => {
     // console.log('rollDice');
     const minThrow = 1;
