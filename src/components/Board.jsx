@@ -1,10 +1,48 @@
-import Grogu from './Grogu';
+
+import Grogu from "./Grogu";
+
+function Board() {
+
+  function board ([Array])
+    const cellHtml = Array.map((cell))
+
+  }
+
+   
+
+    
+
+
+  return (
+    <section className="board">
+      <div className="cell">
+        <Grogu />
+      </div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+      <div className="cell"></div>
+    </section>
+  );
+
+
+
+
+
+
+
+/* import Grogu from './Grogu';
+
+const cell=[]
 
 function Board({groguPosition}) {
-    const boardSize = 6;
+    const boardSize = 6; */
 
-    const cells = (boardSize, groguPosition) => {
+    /* const cells = (boardSize, groguPosition) => {
         const cellElements = []; // Array para almacenar los JSX elementos
+       
+
 
         for (let i = 0; i < boardSize; i++) {
             // Generate unique key based on cell index (consider using a more robust method for large grids)
@@ -12,16 +50,16 @@ function Board({groguPosition}) {
 
             cellElements.push(
                 <div key={cellKey} className="cell">
-                    {/* Conditionally render Grogu only if the cell position matches */}
+                    {/* Conditionally render Grogu only if the cell position matches *//* }
                     {i === groguPosition && <Grogu />}
-                </div>
-            );
-        }
+                </div> */
+        /*     ); */
+         
 
-        return cellElements; // Return the array of JSX elements
-    };
+        /* return cellElements */; // Return the array of JSX elements
+  /*   }; */ 
 
-    return (
+     return (
         <section className="board">
             {cells(boardSize, groguPosition)}
         </section>
