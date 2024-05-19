@@ -12,37 +12,24 @@ function App() {
   const [cookies,setCookies]= useState(["🍪","🍪","🍪"]);
   const [eggs, setEggs] = useState(["🥚","🥚","🥚"]);
   const [frogs, setFrogs] = useState(["🐸","🐸","🐸"]);
-  const [cells,setCells]=useState (["cell"]);
-  
-  
-  
-  const board=()=>{
-    const[cells,setCells] = useState(new Array(7).fill(null));
-    
-
-    
-
-  }
 
   
   const rollDice = (sides) => {
-    // console.log('rollDice');
-    const minThrow = 1;
-    return Math.floor(Math.random() * (sides - minThrow + 1) ) + minThrow;
-    // return 4;
+    const minThrow = 1; // El valor mínimo del dado
+    const diceResult = Math.floor(Math.random() * (sides - minThrow + 1) ) + minThrow; // Fórmula provista por Chat GPT
+    console.log('rollDice -> diceResult: ' + diceResult);
+    return diceResult;
   };
 
   const handleDice = (ev) => {
-    console.log('handleDice');
-    const diceResult = rollDice(4);
+    console.log('handleDice > previous groguPosition: ' + groguPosition);
+    const diceResult = rollDice(4); // Obtiene el resultado del lanzamiento de un dado de 4 caras
 
+    // Si el resultado del dado es 4
     if (diceResult === 4) {
-      setGameStatus('Grogu ha avanzado una casilla');
-      setGroguPosition(groguPosition + 1);
+      setGameStatus('Grogu ha avanzado una casilla'); // Cambia el estado del juego a que el grogu ha avanzado
+      setGroguPosition(groguPosition + 1); // Le suma un movimiento a la posicion actual del grogu
     }
-
-    console.log(diceResult);
-    // console.log(groguPosition);
   };
 
 
@@ -54,7 +41,7 @@ function App() {
       <main className="page">
         <section>
           <button className="dice" onClick={handleDice}>Lanzar Dado</button>
-          <div className="game-status">{gameStatus}</div>
+          <div className="game-status">{gameStatus}</div> {/* El estado del juego de acuerdo al lanzamiento del dado */}
         </section>
 
         <section className="goods-container">

@@ -1,70 +1,39 @@
-
-import Grogu from "./Grogu";
-
-function Board() {
-
-  function board ([Array])
-    const cellHtml = Array.map((cell))
-
-  }
-
-   
-
-    
-
-
-  return (
-    <section className="board">
-      <div className="cell">
-        <Grogu />
-      </div>
-      <div className="cell"></div>
-      <div className="cell"></div>
-      <div className="cell"></div>
-      <div className="cell"></div>
-      <div className="cell"></div>
-    </section>
-  );
-
-
-
-
-
-
-
-/* import Grogu from './Grogu';
-
-const cell=[]
+import Grogu from './Grogu';
 
 function Board({groguPosition}) {
-    const boardSize = 6; */
-
-    /* const cells = (boardSize, groguPosition) => {
-        const cellElements = []; // Array para almacenar los JSX elementos
-       
+    // Define el tamaño de las casillas donde el grogu puede avanzar
+    const boardSize = 6;
 
 
-        for (let i = 0; i < boardSize; i++) {
-            // Generate unique key based on cell index (consider using a more robust method for large grids)
+    // Retorna un nuevo array, utilizando Array.map(), en base a un array con nulls creados con Array.fill(null)
+    const cells = (boardSize, groguPosition) => {
+        // Crea un array del tamaño de las casillas del juego, con valores: null
+        const initialArrayWithNullValues = Array(boardSize).fill(null);
+
+        // Crea un nuevo array, mapeando cada elemento null del array anterior, en una celda
+        return initialArrayWithNullValues.map((_, i) => {
+            // Crea una key unica en base al índice
             const cellKey = `cell-${i}`;
 
-            cellElements.push(
+            // Agrega el componente grogu, solo si la posicion de grogu corresponde al número de celda.
+            // En caso contrario, agrega null
+            const groguComponent = i === groguPosition ? <Grogu/> : null; // Operador ternario
+
+            return (
                 <div key={cellKey} className="cell">
-                    {/* Conditionally render Grogu only if the cell position matches *//* }
-                    {i === groguPosition && <Grogu />}
-                </div> */
-        /*     ); */
-         
+                    {groguComponent}
+                </div>
+            );
+        });
+    };
 
-        /* return cellElements */; // Return the array of JSX elements
-  /*   }; */ 
 
-     return (
+    return (
         <section className="board">
+            {/* Pinta dinamicamente las celdas, dependiendo del tamaño del tablero y la posicion del grogu */}
             {cells(boardSize, groguPosition)}
         </section>
     );
-
 }
 
 export default Board;
