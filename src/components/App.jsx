@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import Header from './Header';
 import Board from './Board';
+import Form from './Form';
+import GetGameStatus from './GetGameStatus';
 
 import '../styles/App.scss';
 
@@ -12,6 +14,7 @@ function App() {
   const [cookies,setCookies]= useState(["🍪","🍪","🍪"]);
   const [eggs, setEggs] = useState(["🥚","🥚","🥚"]);
   const [frogs, setFrogs] = useState(["🐸","🐸","🐸"]);
+  const [names,SetNames]= useState({})
 
   
   const rollDice = (sides) => {
@@ -35,8 +38,12 @@ function App() {
 
   return (
     <>
+      
       <Header />
+      <Form  names={names}/>
       <Board groguPosition={groguPosition}/>
+     
+      
 
       <main className="page">
         <section>
