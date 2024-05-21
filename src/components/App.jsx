@@ -2,18 +2,18 @@ import {useState} from 'react';
 import Header from './Header';
 import Board from './Board';
 import Form from './Form';
-import GetGameStatus from './GetGameStatus';
 
 import '../styles/App.scss';
+import Goods from './Goods.jsx';
 
 function App() {
   const [name, setName] = useState("");
   const [dice, setDice] = useState("");
   const [gameStatus, setGameStatus] = useState("En curso");
   const [groguPosition, setGroguPosition] = useState (0);
-  const [cookies,setCookies]= useState(["🍪","🍪","🍪"]);
-  const [eggs, setEggs] = useState(["🥚","🥚","🥚"]);
-  const [frogs, setFrogs] = useState(["🐸","🐸","🐸"]);
+  const [cookies, setCookies] = useState(['🍪', '🍪', '🍪']);
+  const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
+  const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
   const [names,SetNames]= useState({})
 
   
@@ -25,13 +25,67 @@ function App() {
   };
 
   const handleDice = (ev) => {
-    console.log('handleDice > previous groguPosition: ' + groguPosition);
-    const diceResult = rollDice(4); // Obtiene el resultado del lanzamiento de un dado de 4 caras
+    // Obtiene el resultado del lanzamiento de un dado de 4 caras
+    const diceResult = rollDice(4);
+
 
     // Si el resultado del dado es 4
     if (diceResult === 4) {
-      setGameStatus('Grogu ha avanzado una casilla'); // Cambia el estado del juego a que el grogu ha avanzado
-      setGroguPosition(groguPosition + 1); // Le suma un movimiento a la posicion actual del grogu
+      console.log('handleDice -> Grogu avanza una casilla');
+
+      // Cambia el estado del juego
+      setGameStatus('Grogu ha avanzado una casilla');
+      // Calcula nueva posicion del grogu: Le suma 1 movimiento a la posicion actual del grogu
+      const newGroguPosition = groguPosition + 1
+
+      // Establece nueva posicion del grogu
+      setGroguPosition(newGroguPosition);
+    }
+
+
+    const eatenMessage = 'Se ha descargado una mercancía';
+    // Si el resultado del dado es 3, quita 1 galleta
+    if (diceResult === 3) {
+      console.log('handleDice -> Se ha descargado 1 galleta');
+
+      // Cambia el estado del juego
+      setGameStatus(eatenMessage);
+
+      // Calcula nueva cantidad de galletas
+      const newCookiesAmount = cookies.slice(0, -1);
+
+      // Guarda la nueva cantidad de galletas
+      setCookies(newCookiesAmount);
+    }
+
+
+    // Si el resultado del dado es 2, quita 1 huevo
+    if (diceResult === 2) {
+      console.log('handleDice -> Se ha descargado 1 huevo');
+
+      // Cambia el estado del juego
+      setGameStatus(eatenMessage);
+
+      // Calcula nueva cantidad de huevos
+      const newEggsAmount = eggs.slice(0, -1);
+
+      // Guarda la nueva cantidad de huevos
+      setEggs(newEggsAmount);
+    }
+
+
+    // Si el resultado del dado es 1, quita 1 rana
+    if (diceResult === 1) {
+      console.log('handleDice -> Se ha descargado 1 rana');
+
+      // Cambia el estado del juego
+      setGameStatus(eatenMessage);
+
+      // Calcula nueva cantidad de ranas
+      const newFrogsAmount = frogs.slice(0, -1);
+
+      // Guarda la nueva cantidad de ranas
+      setFrogs(newFrogsAmount);
     }
   };
 
@@ -43,7 +97,6 @@ function App() {
       <Form  names={names}/>
       <Board groguPosition={groguPosition}/>
      
-      
 
       <main className="page">
         <section>
@@ -51,21 +104,10 @@ function App() {
           <div className="game-status">{gameStatus}</div> {/* El estado del juego de acuerdo al lanzamiento del dado */}
         </section>
 
-        <section className="goods-container">
-          <div className="goods-item">🍪</div>
-          <div className="goods-item">🍪</div>
-          <div className="goods-item">🍪</div>
-        </section>
-        <section className="goods-container">
-          <div className="goods-item">🥚</div>
-          <div className="goods-item">🥚</div>
-          <div className="goods-item">🥚</div>
-        </section>
-        <section className="goods-container">
-          <div className="goods-item">🐸</div>
-          <div className="goods-item">🐸</div>
-          <div className="goods-item">🐸</div>
-        </section>
+        <Goods goods={cookies}/>
+        <Goods goods={eggs}/>
+        <Goods goods={frogs}/>
+
         <section>
           <button className="restart-button">Reiniciar Juego</button>
         </section>
