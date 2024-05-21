@@ -14,7 +14,7 @@ function App() {
   const [cookies, setCookies] = useState(['🍪', '🍪', '🍪']);
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
-  const [names,SetNames]= useState({})
+  const [names,SetNames]= useState("")
 
   
   const rollDice = (sides) => {

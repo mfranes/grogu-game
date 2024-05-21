@@ -3,9 +3,10 @@
 function Form({names}) {
       
 
-const handleChange=(ev)=>{
+const handleChange=({names})=>{
    names(ev.target.value)
-   SetNames(value)
+console.log(names)
+   SetNames({...names,[id]:value})
 
 }
 
@@ -14,7 +15,7 @@ const handleChange=(ev)=>{
       <form className="form">
         <label htmlFor=""className="color">Introduce tu nombre para jugar</label>
 
-        <input type="text" id="names" name="names"onChange={handleChange} />
+        <input type="text" id="names" name="names"onChange={handleChange}value={names.value}/>
       
       </form>
       
