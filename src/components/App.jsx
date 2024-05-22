@@ -9,7 +9,6 @@ import Dice from './Dice.jsx';
 
 function App() {
   const [name, setName] = useState("");
-  const [diceResult, setDiceResult] = useState(0);
   const [gameStatus, setGameStatus] = useState("En curso");
   const [groguPosition, setGroguPosition] = useState (0);
   const [cookies, setCookies] = useState(['🍪', '🍪', '🍪']);
@@ -17,7 +16,7 @@ function App() {
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
 
 
-  const updateGame = () => {
+  const updateGame = (diceResult) => {
     // Si el resultado del dado es 4
     if (diceResult === 4) {
       console.log('handleDice -> Grogu avanza una casilla');
@@ -86,7 +85,7 @@ function App() {
 
       <main className="page">
         <section>
-          <Dice setDiceResult={setDiceResult} updateGame={updateGame} />
+          <Dice updateGame={updateGame} />
           <div className="game-status">{gameStatus}</div> {/* El estado del juego de acuerdo al lanzamiento del dado */}
         </section>
 
