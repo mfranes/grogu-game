@@ -8,6 +8,9 @@ import Goods from './Goods.jsx';
 import Dice from './Dice.jsx';
 import GameStatus from './GameStatus.jsx';
 
+
+
+
 function App() {
   const [name, setName] = useState("");
   const [gameStatus, setGameStatus] = useState("En curso");
@@ -16,7 +19,17 @@ function App() {
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
 
+  const newData=()=>[{
+    groguPosition:"0",
+    gameStatus:"start",
+    cookies:"0",
+    eggs:"0",
+    frogs:"0",
 
+  }];
+
+
+  
   const updateGame = (diceResult) => {
     // Si el resultado del dado es 4
     if (diceResult === 4) {
