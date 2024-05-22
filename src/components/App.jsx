@@ -6,6 +6,7 @@ import Form from './Form';
 import '../styles/App.scss';
 import Goods from './Goods.jsx';
 import Dice from './Dice.jsx';
+import GameStatus from './GameStatus.jsx';
 
 function App() {
   const [name, setName] = useState("");
@@ -86,7 +87,7 @@ function App() {
       <main className="page">
         <section>
           <Dice updateGame={updateGame} />
-          <div className="game-status">{gameStatus}</div> {/* El estado del juego de acuerdo al lanzamiento del dado */}
+          <GameStatus gameStatus={gameStatus}/>
         </section>
 
         <Goods goods={cookies}/>
