@@ -14,7 +14,6 @@ function App() {
   const [cookies, setCookies] = useState(['🍪', '🍪', '🍪']);
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
-  const [names,SetNames]= useState("")
 
   
   const rollDice = (sides) => {
@@ -29,12 +28,13 @@ function App() {
     const diceResult = rollDice(4);
 
 
+
     // Si el resultado del dado es 4
     if (diceResult === 4) {
       console.log('handleDice -> Grogu avanza una casilla');
 
       // Cambia el estado del juego
-      setGameStatus('Grogu ha avanzado una casilla');
+      setGameStatus('Grogu avanza una casilla');
       // Calcula nueva posicion del grogu: Le suma 1 movimiento a la posicion actual del grogu
       const newGroguPosition = groguPosition + 1
 
@@ -43,13 +43,12 @@ function App() {
     }
 
 
-    const eatenMessage = 'Se ha descargado una mercancía';
     // Si el resultado del dado es 3, quita 1 galleta
     if (diceResult === 3) {
       console.log('handleDice -> Se ha descargado 1 galleta');
 
-      // Cambia el estado del juego
-      setGameStatus(eatenMessage);
+      // Cambia el estado del juego, agregando el nombre de la usuaria
+      setGameStatus(`${name} has ayudado a Mando a recoger una galleta`);
 
       // Calcula nueva cantidad de galletas
       const newCookiesAmount = cookies.slice(0, -1);
@@ -63,8 +62,8 @@ function App() {
     if (diceResult === 2) {
       console.log('handleDice -> Se ha descargado 1 huevo');
 
-      // Cambia el estado del juego
-      setGameStatus(eatenMessage);
+      // Cambia el estado del juego, agregando el nombre de la usuaria
+      setGameStatus(`${name} has ayudado a Mando a recoger un huevo`);
 
       // Calcula nueva cantidad de huevos
       const newEggsAmount = eggs.slice(0, -1);
@@ -78,8 +77,8 @@ function App() {
     if (diceResult === 1) {
       console.log('handleDice -> Se ha descargado 1 rana');
 
-      // Cambia el estado del juego
-      setGameStatus(eatenMessage);
+      // Cambia el estado del juego, agregando el nombre de la usuaria
+      setGameStatus(`${name} has ayudado a Mando a recoger una rana`);
 
       // Calcula nueva cantidad de ranas
       const newFrogsAmount = frogs.slice(0, -1);
@@ -92,9 +91,8 @@ function App() {
 
   return (
     <>
-      
       <Header />
-      <Form  names={names}/>
+      <Form setName={setName} />
       <Board groguPosition={groguPosition}/>
      
 
