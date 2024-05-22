@@ -5,30 +5,19 @@ import Form from './Form';
 
 import '../styles/App.scss';
 import Goods from './Goods.jsx';
+import Dice from './Dice.jsx';
 
 function App() {
   const [name, setName] = useState("");
-  const [dice, setDice] = useState("");
+  const [diceResult, setDiceResult] = useState(0);
   const [gameStatus, setGameStatus] = useState("En curso");
   const [groguPosition, setGroguPosition] = useState (0);
   const [cookies, setCookies] = useState(['🍪', '🍪', '🍪']);
   const [eggs, setEggs] = useState(['🥚', '🥚', '🥚']);
   const [frogs, setFrogs] = useState(['🐸', '🐸', '🐸']);
 
-  
-  const rollDice = (sides) => {
-    const minThrow = 1; // El valor mínimo del dado
-    const diceResult = Math.floor(Math.random() * (sides - minThrow + 1) ) + minThrow; // Fórmula provista por Chat GPT
-    console.log('rollDice -> diceResult: ' + diceResult);
-    return diceResult;
-  };
 
-  const handleDice = (ev) => {
-    // Obtiene el resultado del lanzamiento de un dado de 4 caras
-    const diceResult = rollDice(4);
-
-
-
+  const updateGame = () => {
     // Si el resultado del dado es 4
     if (diceResult === 4) {
       console.log('handleDice -> Grogu avanza una casilla');
@@ -94,11 +83,10 @@ function App() {
       <Header />
       <Form setName={setName} />
       <Board groguPosition={groguPosition}/>
-     
 
       <main className="page">
         <section>
-          <button className="dice" onClick={handleDice}>Lanzar Dado</button>
+          <Dice setDiceResult={setDiceResult} updateGame={updateGame} />
           <div className="game-status">{gameStatus}</div> {/* El estado del juego de acuerdo al lanzamiento del dado */}
         </section>
 
