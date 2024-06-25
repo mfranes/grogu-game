@@ -89,6 +89,14 @@ function App() {
       setFrogs(newFrogsAmount);
     }
   };
+  const resetGame = () => {
+    setName("");
+    setGameStatus("En curso");
+    setGroguPosition(0);
+    setCookies(['🍪', '🍪', '🍪']);
+    setEggs(['🥚', '🥚', '🥚']);
+    setFrogs(['🐸', '🐸', '🐸']);
+  };
 
 
   return (
@@ -98,8 +106,9 @@ function App() {
       <Board groguPosition={groguPosition}/>
 
       <main className="page">
+        <Dice updateGame={updateGame} />
         <section>
-          <Dice updateGame={updateGame} />
+          
           <GameStatus gameStatus={gameStatus}/>
         </section>
 
@@ -108,7 +117,7 @@ function App() {
         <Goods goods={frogs}/>
 
         <section>
-          <button className="restart-button">Reiniciar Juego</button>
+          <button className="restart-button" onClick={resetGame}>Reiniciar Juego</button>
         </section>
       </main>
     </>

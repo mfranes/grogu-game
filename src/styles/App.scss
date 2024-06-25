@@ -28,6 +28,7 @@ html {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     margin-bottom: 30px;
+    margin-top: 250px;
 }
 
 .cell {
@@ -48,16 +49,22 @@ html {
 }
 
 .dice {
-    background-color: #fff;
+    background-image: url(../images/descarga-btn1.jpeg);
     border: 2px solid #000;
+    color:aliceblue;
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
     margin: 20px 0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100px; /* Tamaño fijo */
+    height: 50px; /* Tamaño fijo */
+    
+    
 }
+
 
 .dice:hover {
     transform: scale(1.1);
@@ -91,6 +98,7 @@ html {
     justify-content: center;
     align-items: center;
     margin: 10px 0;
+  
 }
 
 .goods-item {
